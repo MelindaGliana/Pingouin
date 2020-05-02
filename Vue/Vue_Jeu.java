@@ -1,41 +1,31 @@
-package Vue;
+package pingVue;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.io.InputStream;
-import java.util.*;
-import javax.imageio.ImageIO;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
 
-public class Vue_Jeu{
-
+public class Vue_Jeu extends JPanel{
+	Graphics2D drawable;
+	private Object width;
+	private Object height;
+	JPanel contentPanel;
 	
-	
-	void chargerImage() {
-		InputStream IScase = ClassLoader.getSystemClassLoader().getResourceAsStream("Case.png");
-		try {
-		  uneCase = ImageIO.read(IScase);
-		 }
-		catch (Exception e) {
-		  System.out.println("probleme avec l'image");
-		  System.exit(1);
-		 }
-	}
 	void affiche_niveau() {
 		GridLayout grille1 = new GridLayout(2,2);
-		
-		grille1.add(new JButton("Bouton 1 "));
-		grille1.add(new JButton("Bouton 2 "));
-		grille1.add(new JButton("Bouton 3 "));
-		grille1.add(new JButton("Bouton 4 "));
-			
+		JButton b1 = new JButton("Bouton 1 ");
+		JButton b12 = new JButton("Bouton 12 ");
+		JButton b13 = new JButton("Bouton 13 ");
+		JButton b14 = new JButton("Bouton 14 ");
+		b1.setBounds(200,20,100,100);
+		//grille1.add(b1);
+		grille1.addLayoutComponent("b1", new JButton("Bouton 1 "));
+		grille1.addLayoutComponent("b1", new JButton("Bouton 1 "));
+		grille1.addLayoutComponent("b1", new JButton("Bouton 1 "));
+		contentPanel.setLayout(grille1);
 	}
-	
-	@Override
-	  public void paintComponent(Graphics g) {
-	    this.drawable = (Graphics2D) g;
-	    this.width = getSize().width;
-	    this.height = getSize().height;
-	    affiche_niveau();
-	  }
+
 	
 }
